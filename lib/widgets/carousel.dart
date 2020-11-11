@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class Carousel extends StatelessWidget {
+  final bool showfavs;
+  Carousel(this.showfavs);
+
   @override
   Widget build(BuildContext context) {
     return ListView(

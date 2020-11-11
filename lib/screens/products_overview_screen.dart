@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../providers/product.dart';
 import '../widgets/products_grid.dart';
 import 'package:provider/provider.dart';
+import './cart_screen.dart';
 
 enum FilterOptions {
   Favourites,
@@ -30,7 +31,9 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                 value: cart.itemCount.toString()),
             child: IconButton(
                 icon: Icon(Icons.shopping_cart),
-                onPressed: null),
+                onPressed: (){
+                  Navigator.of(context).pushNamed(CartScreen.routeName);
+                }),
           ),
           PopupMenuButton(
             onSelected: (FilterOptions selectedValue) {
@@ -54,7 +57,12 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       ),
       body: Column(
         children: [
-          Expanded(child: Carousel()),
+          _showOnlyFavourites? Text(
+            'Favourites',
+            style: TextStyle(
+                fontSize: 20
+            ),
+          ) :Expanded(child: Carousel(_showOnlyFavourites)),
           Expanded(
             child: ProductsGrid(_showOnlyFavourites),
           ),
