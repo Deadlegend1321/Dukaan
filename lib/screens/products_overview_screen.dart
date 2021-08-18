@@ -1,4 +1,5 @@
 import 'package:dukaan/providers/cart.dart';
+import 'package:dukaan/widgets/drawer.dart';
 import 'package:dukaan/widgets/badge.dart';
 import 'package:dukaan/widgets/carousel.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +56,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           )
         ],
       ),
+      drawer: AppDrawer(),
       body: Column(
         children: [
           _showOnlyFavourites? Text(
